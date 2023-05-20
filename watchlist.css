@@ -1,0 +1,202 @@
+*, *::before,*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin:0;
+    font-family: 'Inter', sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+a {
+    cursor: pointer;
+    margin: 0;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+}
+
+a:hover {
+    color: #a5a5a5;;
+}
+
+header {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap:50px;
+    width: 100vw;
+    height: 200px;
+    padding: 0 30px;
+    background-image: url(images/THJJRUhNlEc.png);
+    background-size: cover;
+    
+}
+
+header > h1 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 30px;
+}
+
+
+@media(min-width: 500px) {
+    header {
+        justify-content:space-around;
+    }
+}
+
+@media(min-width: 800px) {
+    header > h1 {
+        font-size: 45px;
+    }
+
+    header > a {
+        font-size: 20px;
+    }
+}
+
+/* Movie placeholder container */
+.placeholder-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px auto;
+}
+
+.placeholder-watch-message {
+    margin:15px 0;
+    font-weight: 700;
+    font-size: 18px;
+    color: #787878;
+}
+
+.add-movies-link {
+    display: flex;
+    gap:10px;
+}
+
+.add-movies-link > p {
+    margin: 0;
+}
+
+.add-icon {
+    width: 18px;
+    height: 18px;
+    align-self: center;
+}
+
+.add-icon:hover {
+    opacity: 0.5;
+}
+
+/* Section where the movies will appear */
+#watchlist-container {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin: 40px auto;
+    width: 80vw;
+    min-width: 400px;
+}
+
+/* MOVIE ITEM CARD */
+.movie-item {
+    display: flex;
+    gap:20px;
+    padding: 10px;
+    border-bottom: 1px solid #2E2E2F;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.movie-poster {
+    width: 99px;
+    height: 150px;
+    object-fit: cover;
+    align-self: center;
+    border-radius: 2.33px;
+    box-shadow: 0 6px 10px black;
+}
+
+.movie-antet {
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
+.extra-info {
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
+.delete-icon {
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    margin: 5px;
+}
+
+.delete-icon:hover  {
+    transform: scale(1.2);
+    opacity: 0.5;
+}
+
+.added-symbol {
+    width: 16px;
+    height: 16px;
+    align-items: center;
+}
+
+/* Movie text formating */
+
+.movie-title,
+.fa-star,
+.movie-rating,
+.movie-runtime,
+.movie-genre,
+.add-to-watchlist,
+.movie-plot {
+    margin: 5px 0;
+}
+
+
+.movie-title {
+    font-weight: 500;
+    font-size: 18px;
+    text-align: left;
+}
+
+.movie-runtime,
+.movie-genre {
+    font-size: 12px;
+    text-align: left;
+}
+
+.movie-plot {
+    text-align: left;
+    font-size: 14px;
+    color:#A5A5A5;
+}
+
+@media(min-width:600px){
+    .movie-title {
+        font-size: 20px;
+    }
+
+    .movie-runtime,
+    .movie-genre {
+    font-size: 14px;
+    text-align: left;
+   }
+    .movie-plot {
+        line-height: 1.5;
+        font-size: 18px;
+    }
+    
+}

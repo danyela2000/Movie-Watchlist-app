@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google font links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome kit -->
+    <script src="https://kit.fontawesome.com/c789582bdc.js" crossorigin="anonymous"></script>
+    
+    <!-- Index CSS link -->
+    <link rel="stylesheet" href="index.css">
+    <title>Movie search page</title>
+</head>
+
+<body>
+    <header>
+        <h1>Find your film</h1>
+        <div id="watchlist-link-container">
+            <a href="watchlist.html" id="my-watchlist">My Watchlist</a>
+        </div>
+    </header>
+    
+    <form id="search-container">
+        <i class="fa-solid fa-magnifying-glass" style="color: #a5a5a5;"></i>
+        <input type="text" id="search-bar" placeholder="Blade Runner">
+
+        <!-- this is a submit button! -->
+        <button id="search-btn">Search</button> 
+    </form>
+
+    <main>
+        <section id="movie-list-container">
+
+            <div class="placeholder-container1">
+                <img class="movie-watch-icon" src="icons/movie-list-icon.png">
+                <p class="placeholder-start-message">Start exploring</p>
+            </div>
+
+        </section>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>
