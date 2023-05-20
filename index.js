@@ -4,8 +4,10 @@ const searchButton = document.getElementById("search-btn")
 const movieListContainer = document.getElementById("movie-list-container")
 let moviesArray = [] // for adding & displaing the movie items on the index.html screen
 let moviesStorageArray = [] // store all the user's searched movies
-const localStorageData = JSON.parse(localStorage.getItem("addToWatchlistArray"))
-console.log(localStorageData)
+const localStorageData = localStorage.getItem("addToWatchlistArray") ? 
+                            JSON.parse(localStorage.getItem("addToWatchlistArray")) : []
+
+
 let addToWatchlistArray = localStorageData.length ? localStorageData : [] // here will add movies added by the user
 let moviesHtml = ''
 const length = 144
@@ -105,7 +107,5 @@ function handleAddBtn(btnId) {
 
 function addToLocalStorage(array) {
     localStorage.setItem("addToWatchlistArray", JSON.stringify(array))
-    console.log(array)
-    console.log(localStorage.getItem("addToWatchlistArray"))
 }
 

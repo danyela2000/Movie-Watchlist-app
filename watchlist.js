@@ -48,7 +48,7 @@ function setWatchlistHtml() {
         }).join('')
     
         renderWatchList(watchlistHtml)
-        console.log(storedDataArray)
+
 
     } else if (!storedDataArray.length) {
         renderWatchList(placeholderHtml)
@@ -59,7 +59,6 @@ function setWatchlistHtml() {
 setWatchlistHtml()
 
 function renderWatchList(watchlistHtml) {
-    console.log(watchlistHtml)
     watchListContainer.innerHTML = watchlistHtml 
 }
 
