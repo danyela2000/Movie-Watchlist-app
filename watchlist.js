@@ -17,7 +17,7 @@ const placeholderHtml = `
     </div>`
 
 function setWatchlistHtml() {
-    storedDataArray = JSON.parse(localStorage.getItem("addToWatchlistArray"))
+    storedDataArray = localStorage.getItem("addToWatchlistArray") ? JSON.parse(localStorage.getItem("addToWatchlistArray")) : []
     if(storedDataArray.length) {
         watchlistHtml = storedDataArray.map(function(movie) {
             const {Title, Poster, imdbRating, Runtime, Genre, Plot, imdbID} = movie
