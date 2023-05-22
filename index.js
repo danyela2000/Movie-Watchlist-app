@@ -4,13 +4,10 @@ const searchButton = document.getElementById("search-btn")
 const movieListContainer = document.getElementById("movie-list-container")
 let moviesArray = [] // for adding & displaing the movie items on the index.html screen
 let moviesStorageArray = [] // store all the user's searched movies
-const localStorageData = localStorage.getItem("addToWatchlistArray") ? 
-                            JSON.parse(localStorage.getItem("addToWatchlistArray")) : []
-
-
-let addToWatchlistArray = localStorageData.length ? localStorageData : [] // here will add movies added by the user
+let addToWatchlistArray = localStorage.getItem("addToWatchlistArray") ? 
+                            JSON.parse(localStorage.getItem("addToWatchlistArray")) : [] // here will add movies added by the user
 let moviesHtml = ''
-const length = 144
+const moviePlotlength = 144
 
 
 searchForm.addEventListener("submit", function(e) {
@@ -67,11 +64,11 @@ function setMoviesHtml() {
                            <p class="movie-runtime">${Runtime}</p>
                            <p class="movie-genre">${Genre}</p>
                            <div id="add-icon-container">
-                                <img class="add-icon" id="add-movie" data-movie-item=${imdbID} src="icons/add-icon.png">
+                                <img class="add-icon" id="add-movie" data-movie-item=${imdbID} src="icons/add-icon.png" alt="a white round symbol with a plus sign inside">
                            </div>
                        </div>
    
-                       <p class="movie-plot">${Plot.substring(0, Math.min(length, Plot.length))}...</p>
+                       <p class="movie-plot">${Plot.substring(0, Math.min(moviePlotlength, Plot.length))}...</p>
    
                    </div>
                </div>
@@ -90,7 +87,7 @@ function renderMovies(stringHtml) {
 document.addEventListener("click", function(e){  
     if(e.target.dataset.movieItem) {
         handleAddBtn(e.target.dataset.movieItem)
-        e.target.parentElement.innerHTML = `<img class="added-symbol" src="icons/added-mark.png">`  
+        e.target.parentElement.innerHTML = `<img class="added-symbol" src="icons/added-mark.png" alt="a green rounded symbol with a check mark inside">`  
         addToLocalStorage(addToWatchlistArray)   
     }
     
@@ -98,8 +95,12 @@ document.addEventListener("click", function(e){
 
 function handleAddBtn(btnId) {
     for(movie of moviesStorageArray) { 
-        if(btnId == movie.imdbID) {
+        /*here I check if the movie has the same id as the clicked btn and 
+        if the movie item already exists or not in the addToWatchlistArray*/
+        if(btnId == movie.imdbID && !addToWatchlistArray.some(m => m.imdbID == btnId)) {
             addToWatchlistArray.unshift(movie)
+        } else if(addToWatchlistArray.some(m => m.imdbID == btnId) && btnId == movie.imdbID) {
+            alert("You have already added this movie item to the watchlist.")
         }
     }
     return addToWatchlistArray

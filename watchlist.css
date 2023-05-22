@@ -30,7 +30,7 @@ header {
     width: 100vw;
     height: 200px;
     padding: 0 30px;
-    background-image: url(images/THJJRUhNlEc.png);
+    background-image: url(images/bg-img1.png);
     background-size: cover;
     
 }
@@ -59,7 +59,7 @@ header > h1 {
 }
 
 /* Movie placeholder container */
-.placeholder-container2 {
+.movie-list-placeholder-container {
     display: flex;
     flex-direction: column;
     align-items: center;

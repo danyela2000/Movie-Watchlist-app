@@ -1,11 +1,9 @@
 const watchListContainer = document.getElementById("watchlist-container")
 const myWatchListLink = document.getElementById("watchlist-link-container")
-let storedDataArray = [] // retrieve the stored array from the local Storage
-const length = 144
+const moviePlotlength = 144
 let watchlistHtml =''
-let watchlistArray = []
 const placeholderHtml = `
-    <div class="placeholder-container2">
+    <div class="movie-list-placeholder-container">
         <p class="placeholder-watch-message">Your watchlist is looking a little empty...</p>
 
         <a href="index.html">
@@ -17,7 +15,8 @@ const placeholderHtml = `
     </div>`
 
 function setWatchlistHtml() {
-    storedDataArray = localStorage.getItem("addToWatchlistArray") ? JSON.parse(localStorage.getItem("addToWatchlistArray")) : []
+     // retrieve the stored array from the local Storage
+    let storedDataArray = localStorage.getItem("addToWatchlistArray") ? JSON.parse(localStorage.getItem("addToWatchlistArray")) : []
     if(storedDataArray.length) {
         watchlistHtml = storedDataArray.map(function(movie) {
             const {Title, Poster, imdbRating, Runtime, Genre, Plot, imdbID} = movie
@@ -36,11 +35,11 @@ function setWatchlistHtml() {
                                <p class="movie-runtime">${Runtime}</p>
                                <p class="movie-genre">${Genre}</p>
                                <div id="add-icon-container">
-                                    <img class="delete-icon" id="delete-movie" data-movie-item=${imdbID} src="icons/delete-icon.png">
+                                    <img class="delete-icon" id="delete-movie" data-movie-item=${imdbID} src="icons/delete-icon.png" alt="a red rounded symbol with an x sign inside.">
                                </div>
                            </div>
        
-                           <p class="movie-plot">${Plot.substring(0, Math.min(length, Plot.length))}...</p>
+                           <p class="movie-plot">${Plot.substring(0, Math.min(moviePlotlength, Plot.length))}...</p>
        
                        </div>
                    </div>
@@ -72,7 +71,7 @@ document.addEventListener("click", function(e){
 })
 
 function handleDelBtn(btnId) {
-    watchlistArray = JSON.parse(localStorage.getItem("addToWatchlistArray"))
+    let watchlistArray = JSON.parse(localStorage.getItem("addToWatchlistArray"))
     for(movie of watchlistArray) { 
         if(btnId == movie.imdbID) {
             let movieIndex = watchlistArray.indexOf(movie)
