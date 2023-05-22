@@ -140,6 +140,7 @@ header > h1 {
     height: 18px;
     align-items: center;
     margin: 5px;
+    cursor: pointer;
 }
 
 .delete-icon:hover  {

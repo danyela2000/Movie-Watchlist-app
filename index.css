@@ -134,6 +134,7 @@ header > h1 {
     width: 16px;
     height: 16px;
     align-items: center;
+    cursor: pointer;
 }
 
 .add-icon:hover  {
