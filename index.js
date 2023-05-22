@@ -99,8 +99,6 @@ function handleAddBtn(btnId) {
         if the movie item already exists or not in the addToWatchlistArray*/
         if(btnId == movie.imdbID && !addToWatchlistArray.some(m => m.imdbID == btnId)) {
             addToWatchlistArray.unshift(movie)
-        } else if(addToWatchlistArray.some(m => m.imdbID == btnId) && btnId == movie.imdbID) {
-            alert("You have already added this movie item to the watchlist.")
         }
     }
     return addToWatchlistArray
